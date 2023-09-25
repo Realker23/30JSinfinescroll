@@ -1,6 +1,7 @@
 const quotes = document.getElementById("quotes");
 const loader = document.getElementById("loader");
 let page = 1;
+let total = 0;
 
 const hideLoader = () => {
   loader.classList.remove("show");
@@ -35,6 +36,8 @@ const showQuotes = (array) => {
   });
 };
 
+const hasMoreQuotes = (page, total);
+
 const loadQuotes = (page) => {
   showLoader();
   setTimeout(() => {
@@ -48,7 +51,7 @@ document.addEventListener("scroll", () => {
     `scrollTop - ${scrollTop}  clientHeight - ${clientHeight}  scrollHeight - ${scrollHeight}`
   );
 
-  if (scrollTop + clientHeight >= scrollHeight - 5) {
+  if (scrollTop + clientHeight >= scrollHeight) {
     page++;
     console.log(page);
     loadQuotes(page);
